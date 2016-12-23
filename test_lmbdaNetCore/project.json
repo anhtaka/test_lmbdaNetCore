@@ -8,14 +8,14 @@
       "type": "platform",
       "version": "1.0.0"
     },
-
     "Amazon.Lambda.Core": "1.0.0*",
     "Amazon.Lambda.Serialization.Json": "1.0.1",
-
-    "Amazon.Lambda.Tools" : {
-      "type" :"build",
-      "version":"1.0.4-preview1"
-    }
+    "Amazon.Lambda.Tools": {
+      "type": "build",
+      "version": "1.0.4-preview1"
+    },
+    "AWSSDK.Extensions.NETCore.Setup": "3.3.0.2",
+    "AWSSDK.EC2": "3.3.4.3"
   },
 
   "tools": {

@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.Threading;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Serialization;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -38,7 +41,18 @@ namespace test_lmbdaNetCore
                 }
                 Console.WriteLine("----");
             }
-            return input?.ToUpper();
+
+            //EC2ƒŠƒXƒg‚ÌŽæ“¾
+            var client = new Amazon.EC2.AmazonEC2Client();
+            List<string> tags = new List<string>();
+            var request = new DescribeInstancesRequest();
+            CancellationToken source = new CancellationToken();
+            var response = client.DescribeInstancesAsync(request, source);
+            
+            
+
+
+                return input?.ToUpper();
             //return response;
         }
     }
